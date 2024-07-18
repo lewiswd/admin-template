@@ -8,6 +8,10 @@ export default {
         "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
     ],
     theme: {
+        fontFamily: {
+            body: ["Inter", "sans-serif"],
+            accent: ["Be Vietnam Pro", "sans-serif"],
+        },
         extend: {},
     },
     darkMode: "class",

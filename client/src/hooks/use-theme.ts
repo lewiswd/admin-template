@@ -17,7 +17,7 @@ export const useTheme = () => {
 
         if (!themeSys) {
             // TODO Set theme state in local storage if not exist
-            localStorage.setItem("theme", "dark");
+            localStorage.setItem("theme", "light");
         } else {
             setTheme(themeSys as Theme);
         }
