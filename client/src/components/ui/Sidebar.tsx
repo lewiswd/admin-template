@@ -71,7 +71,7 @@ const Sidebar = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink className="navigation-link" to="/customer" end>
+                        <NavLink className="navigation-link" to="/category" end>
                             <Tooltip
                                 className={cn(
                                     "capitalize text-white font-medium",
@@ -89,7 +89,7 @@ const Sidebar = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink className="navigation-link" to="/customer" end>
+                        <NavLink className="navigation-link" to="/report" end>
                             <Tooltip
                                 className={cn(
                                     "capitalize text-white font-medium",

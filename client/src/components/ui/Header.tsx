@@ -33,7 +33,7 @@ const Header = () => {
         const handlerKeydown = (e: KeyboardEvent) => {
             if (e.ctrlKey && e.key === "k") {
                 e.preventDefault();
-                searchRef.current?.focus();
+                if (searchRef.current) searchRef.current.focus();
             }
 
             if (e.key === "Escape") {
@@ -123,7 +123,7 @@ const Header = () => {
                         <DropdownMenu aria-label="User Actions" variant="flat">
                             <DropdownItem
                                 key="settings"
-                                className="block first-letter:uppercase"
+                                className="block first-letter:uppercase text-gray-500 dark:text-gray-400"
                                 onClick={() => navigate("/settings")}
                             >
                                 cài đặt
@@ -131,7 +131,7 @@ const Header = () => {
                             <DropdownItem
                                 key="logout"
                                 color="danger"
-                                className="block first-letter:uppercase"
+                                className="block first-letter:uppercase text-gray-500 dark:text-gray-400"
                             >
                                 đăng xuất
                             </DropdownItem>
