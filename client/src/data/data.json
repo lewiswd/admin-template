@@ -1,0 +1,58 @@
+{
+    "roles": [
+        {
+            "id": 1,
+            "name": "administrator",
+            "totalUser": 5,
+            "description": "All Admin Controls, View and Edit Financial Summaries, Enabled Bulk Reports, View and Edit Payouts, View and Edit Disputes"
+        },
+        {
+            "id": 2,
+            "name": "developer",
+            "totalUser": 14,
+            "description": "All Admin Controls, View and Edit Financial Summaries, Enabled Bulk Reports, View and Edit Payouts, View and Edit Disputes"
+        },
+        {
+            "id": 4,
+            "name": "analyst",
+            "totalUser": 5,
+            "description": "All Admin Controls, View and Edit Financial Summaries, Enabled Bulk Reports, View and Edit Payouts, View and Edit Disputes"
+        },
+        {
+            "id": 23,
+            "name": "support",
+            "totalUser": 5,
+            "description": "All Admin Controls, View and Edit Financial Summaries, Enabled Bulk Reports, View and Edit Payouts, View and Edit Disputes"
+        }
+    ],
+    "permission": [
+        {
+            "id": 1,
+            "name": "quản lý người dùng",
+            "description": "khi người dùng có một trong những quyền thuộc quyền này thì người dùng có thể quản lý dữ liệu người dùng trên hệ thống.",
+            "createdAt": "22/07/2024",
+            "updatedAt": ""
+        },
+        {
+            "id": 2,
+            "name": "quản lý nhóm người dùng",
+            "description": "khi người dùng có một trong những quyền thuộc quyền này thì người dùng có thể quản lý dữ liệu nhóm người dùng trên hệ thống.",
+            "createdAt": "22/07/2024",
+            "updatedAt": ""
+        },
+        {
+            "id": 3,
+            "name": "quản lý khách hàng",
+            "description": "khi người dùng có một trong những quyền thuộc quyền này thì người dùng có thể quản lý dữ liệu khách hàng trên hệ thống.",
+            "createdAt": "22/07/2024",
+            "updatedAt": ""
+        },
+        {
+            "id": 4,
+            "name": "quản lý danh mục",
+            "description": "khi người dùng có một trong những quyền thuộc quyền này thì người dùng có thể quản lý dữ liệu danh mục trên hệ thống.",
+            "createdAt": "22/07/2024",
+            "updatedAt": ""
+        }
+    ]
+}

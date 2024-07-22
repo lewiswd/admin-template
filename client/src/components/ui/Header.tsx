@@ -49,7 +49,7 @@ const Header = () => {
     }, []);
 
     return (
-        <header className="sticky top-0 left-0 right-0 w-full shadow-md z-10 py-2 px-4 md:p-8">
+        <header className="sticky top-0 left-0 right-0 w-full shadow-md z-10 py-2 px-4 md:p-4">
             <div className="flex justify-between items-center">
                 <div>
                     {/* Search input */}
@@ -57,7 +57,7 @@ const Header = () => {
                         className={cn(
                             "hidden md:flex items-center gap-1 w-72 lg:w-96 relative",
                             "p-3 rounded-lg",
-                            "bg-gray-200 dark:bg-gray-800"
+                            "bg-gray-200 focus-within:bg-gray-300 focus:bg-gray-300 dark:bg-gray-700 dark:focus-within:bg-gray-600 dark:focus:bg-gray-600"
                         )}
                         onClick={handleSearchClick}
                     >

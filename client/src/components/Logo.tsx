@@ -6,7 +6,7 @@ const Logo = () => {
     return (
         <Link
             to="/"
-            className="hidden md:block w-20 aspect-square flex-shrink-0"
+            className="hidden md:block w-12 aspect-square flex-shrink-0"
         >
             <img
                 className="w-full h-full object-cover"

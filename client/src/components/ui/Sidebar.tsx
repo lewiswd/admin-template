@@ -11,7 +11,7 @@ import { cn } from "@/utils";
 
 const Sidebar = () => {
     return (
-        <aside className="p-2 md:p-4 md:w-28 flex flex-col">
+        <aside className="p-2 md:p-4 md:w-20 flex flex-col">
             {/* Logo */}
             <Logo />
             <nav className="navigation">
@@ -29,7 +29,7 @@ const Sidebar = () => {
                                 placement="right"
                             >
                                 <span>
-                                    <GoHomeFill className="w-6 h-6" />
+                                    <GoHomeFill className="w-5 h-5" />
                                 </span>
                             </Tooltip>
                         </NavLink>
@@ -47,7 +47,7 @@ const Sidebar = () => {
                                 placement="right"
                             >
                                 <span>
-                                    <FaUser className="w-6 h-6" />
+                                    <FaUser className="w-5 h-5" />
                                 </span>
                             </Tooltip>
                         </NavLink>
@@ -65,7 +65,7 @@ const Sidebar = () => {
                                 placement="right"
                             >
                                 <span>
-                                    <FaUsers className="w-6 h-6" />
+                                    <FaUsers className="w-5 h-5" />
                                 </span>
                             </Tooltip>
                         </NavLink>
@@ -83,7 +83,7 @@ const Sidebar = () => {
                                 placement="right"
                             >
                                 <span>
-                                    <BiSolidCategoryAlt className="w-6 h-6" />
+                                    <BiSolidCategoryAlt className="w-5 h-5" />
                                 </span>
                             </Tooltip>
                         </NavLink>
@@ -101,7 +101,7 @@ const Sidebar = () => {
                                 placement="right"
                             >
                                 <span>
-                                    <HiDocument className="w-6 h-6" />
+                                    <HiDocument className="w-5 h-5" />
                                 </span>
                             </Tooltip>
                         </NavLink>

@@ -21,11 +21,11 @@ const NotFound = () => {
                     alt="Notfound items"
                 />
                 <div className="text-center text-lg font-medium">
-                    Oops! Page not found
+                    Trang không tồn tại
                 </div>
                 <p className="text-center text-sm font-medium">
-                    The page you are looking for doesn't exist or other error
-                    occured, Go back to previous page or homepage
+                    Trang bạn đang tìm kiếm không tồn tại hoặc có lỗi khác đã
+                    xảy ra, Quay lại trang trước đó hoặc trang chủ
                 </p>
                 <div className="flex gap-2 md:gap-4 lg:gap-8">
                     <Button
@@ -34,7 +34,7 @@ const NotFound = () => {
                         onClick={() => navigate("/")}
                     >
                         <span className="first-letter:uppercase">
-                            go to home
+                            đi đến trang chủ
                         </span>
                     </Button>
                     <Button
@@ -44,7 +44,7 @@ const NotFound = () => {
                         onClick={() => navigate(-1)}
                     >
                         <span className="first-letter:uppercase">
-                            previous page
+                            trang trước
                         </span>
                     </Button>
                 </div>
