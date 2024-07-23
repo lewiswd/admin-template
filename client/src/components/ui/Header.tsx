@@ -49,7 +49,7 @@ const Header = () => {
     }, []);
 
     return (
-        <header className="sticky top-0 left-0 right-0 w-full shadow-md z-10 py-2 px-4 md:p-4">
+        <header className="sticky top-0 left-0 right-0 w-full shadow-md z-50 py-2 px-4 md:p-4">
             <div className="flex justify-between items-center">
                 <div>
                     {/* Search input */}

@@ -1,8 +1,4 @@
 import { useCallback, useEffect, useState } from "react";
-import { TbRefresh } from "react-icons/tb";
-import { HiDotsVertical } from "react-icons/hi";
-
-import { HeaderSection } from "@/components";
 import {
     Button,
     Dropdown,
@@ -20,6 +16,10 @@ import {
     TableRow,
     Tooltip,
 } from "@nextui-org/react";
+import { TbRefresh } from "react-icons/tb";
+import { HiDotsVertical } from "react-icons/hi";
+
+import { HeaderSection } from "@/components";
 
 const fakePermissions = [
     {
@@ -77,7 +77,7 @@ const UserPermissions = () => {
     const [tableData, setTableData] = useState<TData>([]);
     const [pagination, setPagination] = useState({
         pageIndex: 0,
-        pageSize: 2,
+        pageSize: 10,
     });
     const [totalRow, setTotalRow] = useState<number>(0);
 
@@ -109,7 +109,7 @@ const UserPermissions = () => {
                     );
                 case "createdAt":
                     return (
-                        <div className="md:w-16 lg:w-32">
+                        <div className="w-20">
                             <div className="text-xs">{item.createdAt}</div>
                         </div>
                     );
@@ -155,7 +155,13 @@ const UserPermissions = () => {
      * TODO: Side effect
      */
     useEffect(() => {
-        setTableData(fakePermissions);
+        const startIndex = pagination.pageIndex * pagination.pageSize;
+        const endIndex = startIndex + pagination.pageSize;
+        const filterData = [...fakePermissions].slice(startIndex, endIndex);
+        setTableData(filterData);
+    }, [pagination.pageIndex, pagination.pageSize]);
+
+    useEffect(() => {
         setTotalRow(fakePermissions.length);
     }, []);
 
