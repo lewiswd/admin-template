@@ -132,6 +132,7 @@ const Header = () => {
                                 key="logout"
                                 color="danger"
                                 className="block first-letter:uppercase text-gray-500 dark:text-gray-400"
+                                onClick={() => navigate("/auth/signin")}
                             >
                                 đăng xuất
                             </DropdownItem>

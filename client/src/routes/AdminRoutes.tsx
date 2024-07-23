@@ -8,6 +8,7 @@ import {
     Customer,
     Dashboard,
     Report,
+    SignIn,
     User,
     UserList,
     UserPermissions,
@@ -25,6 +26,7 @@ const AdminRoutes = () => {
         >
             <Routes>
                 <Route>
+                    {/* Private routes */}
                     <Route element={<MainWrapper />}>
                         {/* Dashboard */}
                         <Route path="/" element={<Dashboard />} />
@@ -43,6 +45,10 @@ const AdminRoutes = () => {
                         {/* Report */}
                         <Route path="/report" element={<Report />} />
                     </Route>
+                </Route>
+                {/* Auth routes */}
+                <Route>
+                    <Route path="/auth/signin" element={<SignIn />} />
                 </Route>
                 <Route
                     path="*"
