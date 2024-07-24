@@ -1,17 +1,16 @@
-import { Fragment } from "react";
-
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "animate.css/animate.min.css";
 
+import { AuthProvider } from "@/contexts";
 import { AdminRoutes } from "@/routes";
 
 const App = () => {
     return (
-        <Fragment>
+        <AuthProvider>
             <AdminRoutes />
             <ToastContainer />
-        </Fragment>
+        </AuthProvider>
     );
 };
 

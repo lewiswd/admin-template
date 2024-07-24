@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
+import jwt, { Jwt, JwtPayload } from "jsonwebtoken";
 
 import { TUnknownObjectProps } from "../types";
 
@@ -35,6 +35,11 @@ export const createToken = (
 export const decodeToken = (token: string) => {
     // Decode the token without verifying it
     return jwt.decode(token, { complete: true });
+};
+
+export const getPayloadToken = (decode: Jwt | null) => {
+    if (!decode) return null;
+    return decode.payload as JwtPayload;
 };
 
 export const isExpiredToken = (token: string) => {

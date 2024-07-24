@@ -31,3 +31,12 @@ export const cn = (...classNames: ClassnameParameters): string => {
     const cls = classNames.filter(Boolean);
     return cls.join(" ");
 };
+
+export function isExpiredToken(tokenExp: number): boolean {
+    // Check if the token is expired
+    const date = new Date();
+
+    const isExpired = tokenExp < date.getTime() / 1000;
+
+    return isExpired;
+}

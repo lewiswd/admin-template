@@ -15,6 +15,8 @@ import {
     UserRoles,
 } from "@/pages";
 
+import { AuthRoutes, ProtectedRoutes } from "./AdvanceRoutes";
+
 const AdminRoutes = () => {
     return (
         <Suspense
@@ -25,7 +27,7 @@ const AdminRoutes = () => {
             }
         >
             <Routes>
-                <Route>
+                <Route element={<ProtectedRoutes />}>
                     {/* Private routes */}
                     <Route element={<MainWrapper />}>
                         {/* Dashboard */}
@@ -47,7 +49,7 @@ const AdminRoutes = () => {
                     </Route>
                 </Route>
                 {/* Auth routes */}
-                <Route>
+                <Route element={<AuthRoutes />}>
                     <Route path="/auth/signin" element={<SignIn />} />
                 </Route>
                 <Route
