@@ -29,6 +29,7 @@
 | address      | The address of user                | string (max) | -         | -           | -       |
 | phone        | The phone number of user           | string (15)  | -         | -           | ""      |
 | birthday     | The birthday information of user   | DateTime     | -         | -           | null    |
+| photoUrl     | The photo of user                  | String       | -         | -           | null    |
 | departmentId | The department information of user | Guid         | -         | Foreign key | null    |
 | officeId     | The department information of user | Guid         | -         | Foreign key | null    |
 
