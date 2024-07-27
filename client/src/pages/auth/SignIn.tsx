@@ -1,14 +1,22 @@
 import { FormEvent, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useMutation } from "@tanstack/react-query";
 import { Button, Input } from "@nextui-org/react";
 
+import { signIn } from "@/api";
 import { Authentication, LogoImage } from "@/assets";
+import { useAuth } from "@/contexts";
+import { ProfileDto } from "@/types";
+import { notification } from "@/utils";
 
 const SignIn = () => {
-    const navigate = useNavigate();
-
     const emailRef = useRef<HTMLInputElement | null>(null);
     const passwordRef = useRef<HTMLInputElement | null>(null);
+
+    const { updateUser } = useAuth();
+
+    const signInMutation = useMutation({
+        mutationFn: signIn,
+    });
 
     /**
      * TODO: Handle events
@@ -16,17 +24,27 @@ const SignIn = () => {
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
 
+        const payload = {
+            email: emailRef.current?.value.trim() || "",
+            password: passwordRef.current?.value.trim() || "",
+        };
+
         // TODO: Validate email and password. Show notification when value is not enough.
-        if (
-            emailRef.current?.value === "" ||
-            passwordRef.current?.value === ""
-        ) {
-            alert("Vui lòng nhập đủ thông tin đăng nhập");
+        if (payload.email === "" || payload.password === "") {
+            notification(false, "Vui lòng nhập đủ thông tin đăng nhập");
             return;
         }
 
         // TODO: Call api to sign in
-        navigate("/");
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const res: any = await signInMutation.mutateAsync(payload);
+        notification(res.status, res.message);
+        if (res.status) {
+            // Set token to localStorage
+            localStorage.setItem("token", res.data.token);
+            // Update data to currentUser data local
+            updateUser(res.data.payload as unknown as ProfileDto);
+        }
     };
 
     return (
@@ -72,8 +90,12 @@ const SignIn = () => {
                             type="submit"
                             color="success"
                             className="block w-full text-white first-letter:uppercase"
+                            isLoading={signInMutation.isPending}
+                            isDisabled={signInMutation.isPending}
                         >
-                            đăng nhập
+                            {signInMutation.isPending
+                                ? "đang đăng nhập"
+                                : "đăng nhập"}
                         </Button>
                     </div>
                 </form>

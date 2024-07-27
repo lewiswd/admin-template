@@ -11,11 +11,12 @@ config();
 
 const app = express();
 const port = process.env.PORT || 9069;
+const origin = process.env.ORIGIN || "http://localhost:5173";
 
 // Middleware configuration
 app.use(
     cors({
-        origin: process.env.ORIGIN || "http://localhost:5173",
+        origin,
         credentials: true,
     })
 );

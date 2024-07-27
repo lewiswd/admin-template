@@ -17,8 +17,7 @@ const AuthProvider = ({ children }: { children: ReactNode[] | ReactNode }) => {
         if (token !== "") {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const decoded: any = jwtDecode(token);
-
-            const res = await getProfileById(decoded.Id);
+            const res = await getProfileById(decoded.id);
 
             if (res) setUser(res.data as ProfileDto);
         }

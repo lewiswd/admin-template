@@ -50,7 +50,12 @@ export const getUserByEmailAndPassword = async (
         },
     });
 
-    if (data && !isComparePassword(password, data.password)) {
+    const isComparedPassword = await isComparePassword(
+        password,
+        data?.password as string
+    );
+
+    if (data && !isComparedPassword) {
         return null;
     }
 

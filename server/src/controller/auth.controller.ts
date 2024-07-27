@@ -89,6 +89,24 @@ export const signIn = async (
     }
 };
 
+export const signOut = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
+    // TODO: Clear refresh token from cookie
+    res.clearCookie("refreshToken");
+
+    // TODO: Define response
+    const response: TResponseData = {
+        status: true,
+        message: `Bạn đã đăng xuất thành công!`,
+        data: {},
+    };
+
+    return res.status(200).json(response);
+};
+
 export const refreshToken = async (
     req: Request,
     res: Response,

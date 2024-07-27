@@ -9,5 +9,5 @@ export const AuthRoutes = () => {
 
 export const ProtectedRoutes = () => {
     const { user } = useAuth();
-    return user != null ? <Outlet /> : <Navigate to="/auth/login" />;
+    return user != null ? <Outlet /> : <Navigate to="/auth/signin" />;
 };
