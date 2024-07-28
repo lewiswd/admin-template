@@ -57,11 +57,12 @@
 
 **RolePermission**
 
-| Name field   | Description       | Type | Condition | Key         | Default |
-| ------------ | ----------------- | ---- | --------- | ----------- | ------- |
-| id           | The id            | Guid | unique    | Primary key | -       |
-| permissionId | The permission id | Guid | -         | Foreign key | -       |
-| roleId       | The role id       | Guid | -         | Foreign key | -       |
+| Name field    | Description           | Type   | Condition | Key         | Default |
+| ------------- | --------------------- | ------ | --------- | ----------- | ------- |
+| id            | The id                | Guid   | unique    | Primary key | -       |
+| permissionId  | The permission id     | Guid   | -         | Foreign key | -       |
+| roleId        | The role id           | Guid   | -         | Foreign key | -       |
+| permissionStr | The permission string | string | -         | -           | -       |
 
 # Description
 
