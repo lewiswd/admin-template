@@ -55,6 +55,7 @@ export const signIn = async (
             roleId: data.roleId,
             roleName: data.role.name,
             roleCode: data.role.code,
+            rolePermission: data.role.permission,
             userId: data.userId,
             fullName: data.user
                 ? cn(data.user.firstName, data.user.lastName)

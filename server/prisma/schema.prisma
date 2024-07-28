@@ -50,8 +50,6 @@ model Permission {
   description String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-
-  rolePermissions RolePermission[]
 }
 
 model Role {
@@ -59,21 +57,11 @@ model Role {
   name        String   @unique
   code        String   @unique
   description String
+  permission  String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  Account         Account[]
-  rolePermissions RolePermission[]
-}
-
-model RolePermission {
-  id            Int    @id @default(autoincrement())
-  permissionId  String
-  roleId        String
-  permissionStr String
-
-  permission Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
-  role       Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  Account Account[]
 }
 
 model Department {

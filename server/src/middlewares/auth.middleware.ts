@@ -1,8 +1,14 @@
 import { NextFunction, Request, Response } from "express";
 
-import { BadRequestError } from "../errors";
-import { TSignInRequest, TUnknownObjectProps } from "../types";
-import { isEmptyObject, isExpiredToken } from "../utils";
+import { BadRequestError, ForbiddenError } from "../errors";
+import { getUserById } from "../services";
+import { TProfileDto, TSignInRequest, TUnknownObjectProps } from "../types";
+import {
+    decodeToken,
+    getPayloadToken,
+    isEmptyObject,
+    isExpiredToken,
+} from "../utils";
 
 export const validationSignIn = async (
     req: Request,
@@ -49,4 +55,50 @@ export const validationRefreshToken = async (
     }
 
     next();
+};
+
+export const validationRolePermission = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
+    const user = req.user;
+
+    if (user.roleCode !== "superadmin") {
+        // TODO: If not permission, return a forbidden error
+        return next(
+            new ForbiddenError("Bạn không thể thực hiện chức năng này!")
+        );
+    }
+
+    next();
+};
+
+export const authorize = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
+    const token = req.headers["authorization"]?.split(" ")[1];
+
+    if (!token) {
+        // TODO: If either token is missing, return a bad request error
+        return next(
+            new BadRequestError("Bạn cần đăng nhập để thực hiện chức năng này!")
+        );
+    }
+
+    const decoded = decodeToken(token);
+    const decodedPayload = getPayloadToken(decoded);
+
+    const data = await getUserById(decodedPayload?.id);
+
+    if (!data) {
+        // TODO: If either token is missing, return a bad request error
+        return next(
+            new BadRequestError("Bạn cần đăng nhập để thực hiện chức năng này!")
+        );
+    }
+
+    req.user = data as unknown as TProfileDto;
 };

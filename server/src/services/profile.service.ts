@@ -1,6 +1,8 @@
 import { db } from "../configs";
 
 export const getUserById = async (id: string) => {
+    if (!id) return null;
+
     // TODO: Get user data
     const data = await db.account.findFirst({
         where: { id },
@@ -14,6 +16,7 @@ export const getUserById = async (id: string) => {
                 select: {
                     name: true,
                     code: true,
+                    permission: true,
                 },
             },
             userId: true,

@@ -20,6 +20,7 @@ export const getUserByEmailAndPassword = async (
                 select: {
                     name: true,
                     code: true,
+                    permission: true,
                 },
             },
             userId: true,

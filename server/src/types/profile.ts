@@ -5,6 +5,7 @@ export type TProfileDto = {
     roleId: string;
     roleName: string;
     roleCode: string;
+    rolePermission: string;
     userId: string | null;
     fullName: string;
     address: string;

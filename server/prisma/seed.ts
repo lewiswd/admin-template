@@ -13,6 +13,7 @@ async function main() {
             code: "superadmin",
             description:
                 "nhóm người dùng cao nhất và có quyền quản trị toàn bộ hệ thống.",
+            permission: "",
         },
     });
 
