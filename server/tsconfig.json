@@ -9,5 +9,6 @@
         "skipLibCheck": true /* Skip type checking all .d.ts files. */,
         "baseUrl": "./src" // Đường dẫn base cho các import
     },
-    "include": ["src/**/*", "prisma/seed.ts"]
+    "include": ["src/**/*", "prisma/seed.ts"],
+    "files": ["src/global.d.ts"]
 }
